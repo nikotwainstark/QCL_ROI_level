@@ -41,11 +41,25 @@ Run commands from `QCL_ROI_level/src`:
 ### 1) Build ROI raw data
 ```bash
 python build_roi_raw_data.py --config ../configs/build_roi_raw_data_pimo_roi_level.example.yaml
+```
 
 ### 2) Train + visualize ROI hypoxia classifier
 ```bash
 python roi_hypoxia_rf_classifier_full_vis.py --config ../configs/roi_hypoxia_rf_classifier_full_vis_roi_level.example.yaml
+```
+
+Multi-sheet behavior:
+- If `paths.multi_sheet_excel: true`, the script iterates all sheets.
+- Output is written to:
+  `OUTPUT_DIR/<sheet_name>/<timestamp>/`
 
 ### 3) Train ROI hypoxia regressor
+```bash
 python roi_hypoxia_rf_regressor_train.py --config ../configs/roi_hypoxia_rf_regressor_train_roi_level.example.yaml
+```
+Multi-sheet behavior:
+- All sheets in `master_excel_path` are concatenated.
+- Each sheet name becomes the `stratum_col` value for that subset.
+
+
 
