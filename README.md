@@ -41,3 +41,11 @@ Run commands from `QCL_ROI_level/src`:
 ### 1) Build ROI raw data
 ```bash
 python build_roi_raw_data.py --config ../configs/build_roi_raw_data_pimo_roi_level.example.yaml
+
+### 2) Train + visualize ROI hypoxia classifier
+```bash
+python roi_hypoxia_rf_classifier_full_vis.py --config ../configs/roi_hypoxia_rf_classifier_full_vis_roi_level.example.yaml
+
+### 3) Train ROI hypoxia regressor
+python roi_hypoxia_rf_regressor_train.py --config ../configs/roi_hypoxia_rf_regressor_train_roi_level.example.yaml
+
