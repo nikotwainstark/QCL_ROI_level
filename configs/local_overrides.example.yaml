@@ -1,0 +1,25 @@
+# local_overrides.yaml (machine-specific; not recommended to commit)
+#
+# Priority (highest to lowest):
+#   Environment variables QCL_DATA_PATH / QCL_OUTPUT_DIR / QCL_DEVICE
+#     > configs/local_overrides.yaml
+#     > Experiment YAML paths.*
+#     > Entry-script defaults (if the script does not read YAML)
+#
+# Notes:
+#   - Key names are aligned with patch_level for portability and loader reuse.
+#   - ROI_level scripts still have some hard-coded paths; these will be
+#     migrated to YAML-based config in later phases.
+
+# Default data root for resolve_path (overridden by env QCL_DATA_PATH).
+# Recommended: set to the PIMO repository root so YAML configs can use relative paths.
+data_path: 'E:\temp project code\PIMO'
+
+# Default output root for resolve_training_paths (overridden by env QCL_OUTPUT_DIR).
+output_dir: 'E:\temp project code\PIMO'
+
+# Device (most ROI scripts do not use GPU, kept for API consistency).
+device: 'cpu'
+
+# Used to derive folder_name_effective when output_dir is empty.
+output_folder_name: 'run_default'

@@ -1,0 +1,39 @@
+# ====================
+# Python / environment
+# ====================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+.venv/
+venv/
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+# ====================
+# Secrets / local configs
+# ====================
+.env
+.env.*
+*.pem
+*.key
+credentials*.json
+# ====================
+# Large binaries / artifacts (general)
+# ====================
+*.xlsx
+*.xls
+*.npy
+*.npz
+*.joblib
+*.pkl
+*.pt
+*.pth
+*.png
+*.pdf
+*.svg
+*.tif
+*.tiff

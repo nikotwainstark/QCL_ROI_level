@@ -1,0 +1,39 @@
+# Example config for `roi_hypoxia_rf_classifier_full_vis.py`
+
+meta:
+  task_type: 'roi_hypoxia_rf_classifier_full_vis'
+
+paths:
+  master_excel_path: 'ROI_level\data\roi_manifest_P4_filtered_GGs_stratum_edited.xlsx'
+  wavenumbers_path: 'total_data_P4\wavenumbers.npy'
+  output_dir: 'ROI_level\data\outputs\P4\random forest classifier outputs\GG_stratum_geometric_mean'
+  # true  -> iterate all sheets; output to OUTPUT_DIR/<sheet_name>/<timestamp>/
+  # false -> read first sheet only; output to OUTPUT_DIR/<timestamp>/ (legacy)
+  multi_sheet_excel: true
+
+columns:
+  pimo_col: 'PIMO_HS_Tum'
+  glut1_col: 'GLUT1_HS_Tum'
+  roi_data_col: 'ROI_DATA'
+  roi_mask_col: 'ROI_EPI_MASK'
+  core_id_col: 'CORE_ID'
+  patient_id_col: 'PATIENT_ID'
+  path_report_col: 'PO Path report'
+
+sampling:
+  n_pixels_per_roi: 50
+  random_seed: 42
+
+  quantile_low: 0.15
+  quantile_high: 0.85
+
+rf:
+  n_repeats: 20
+  test_patient_ratio: 0.25
+  n_permutations: 200
+
+filters:
+  # Exclude problematic samples before label generation / training.
+  excluded_patient_ids: [210, 224]
+  excluded_core_ids: ['202H', '202J']
+

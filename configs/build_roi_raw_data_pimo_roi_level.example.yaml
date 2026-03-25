@@ -1,0 +1,27 @@
+# Example config for `build_roi_raw_data.py`
+
+meta:
+  task_type: 'build_roi_raw_data'
+
+paths:
+  # ROI manifest: provides `CORE_ID` + `ROI_CLICKS` for each ROI
+  # (`ROI_CLICKS` points to an .npz containing polygon vertices in `coords_xy`).
+  # The script only requires these two columns; `ROI_ID` is optional (used for output naming).
+  manifest_path: 'ROI_level\data\roi_master_file_training_manifest_global_benign_v2.xlsx'
+  # Core master: maps `CORE_ID` to the paths of core data and (optionally) epi mask
+  # - `hs_path`: points to the core hyperspectral cube (.npy/.npz)
+  # - `epi_mask_path`: points to the epi mask; if present and shape-matching, the script outputs `roi_epi_mask`
+  core_master_path: 'pimo_core_master_P4_2nd_derivative_windows_edited_epi_mask.xlsx'
+  # Output directory: saves each ROI's padded hyperspectral cube and polygon mask
+  # (and optionally `roi_epi_mask` if available).
+  output_raw_dir: 'ROI_level\data\P4_2nd_derivative'
+
+columns:
+  roi_clicks_col: 'ROI_CLICKS'
+  core_id_col: 'CORE_ID'
+  hs_path_col: 'hs_path'
+  epi_mask_path_col: 'epi_mask_path'
+
+exclude:
+  core_ids: []
+
